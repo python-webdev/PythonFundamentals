@@ -16,12 +16,12 @@
 # ── 2. What operations are valid? ────────────────────────────────────────────
 # Each type supports a specific set of operations — knowing this prevents errors.
 
-print("hello" + " world")  # ✅ string concatenation → ‘hello world’
-print("hello" * 3)  # ✅ repetition           → ‘hellohellohello’
+print("hello" + " world")  # ✅ string concatenation → 'hello world'
+print("hello" * 3)  # ✅ repetition           → 'hellohellohello'
 # "hello" - "h"             # ❌ TypeError: subtraction not defined for str
 
 print([1, 2] + [3, 4])  # ✅ list concatenation   → [1, 2, 3, 4]
-# [1, 2] + 3                # ❌ TypeError: can’t add int to list
+# [1, 2] + 3                # ❌ TypeError: can't add int to list
 
 # tuple has no .append() because it is immutable — different operations, different type.
 
@@ -43,12 +43,14 @@ print(a)  # [1, 2, 3, 4] — a changed too!
 x = "hello"
 y = x
 y += " world"
-print(x)  # ‘hello’ — x unchanged; y got a brand-new string object
+print(x)  # 'hello' — x unchanged; y got a brand-new string object
 
 # Practical consequence:
-# Passing a list into a function CAN mutate the original.
-# Passing an int into a function NEVER can.
+# Passing a `list` into a function CAN mutate the original.
+# Passing an `int` into a function NEVER can.
 
+
+# ── Primitive Types ───────────────────────────────────────────────────────────
 
 # ── Numeric ──────────────────────────────────────────────────────────────────
 integer = 42
@@ -77,6 +79,13 @@ is_done = False
 print(True + True)  # 2  (bool is a subclass of int)
 print(int(False))  # 0
 
+# ── NoneType ─────────────────────────────────────────────────────────────────
+result = None
+print(result is None)  # True
+
+
+# ── Complex/Collection Types ─────────────────────────────────────────────────────────────
+
 # ── List  (ordered, mutable, allows duplicates) ───────────────────────────────
 fruits = ["apple", "banana", "cherry"]
 fruits.append("date")
@@ -88,7 +97,7 @@ coordinates = (10.0, 20.0)
 x, y = coordinates  # unpacking
 print(x, y)  # 10.0  20.0
 
-# ── Set  (unordered, no duplicates) ──────────────────────────────────────────
+# ── Set  (unordered, no duplicates) unique ──────────────────────────────────────────
 unique = {1, 2, 2, 3, 3, 3}  # pylint: disable=duplicate-value
 print(unique)  # {1, 2, 3}
 
@@ -109,10 +118,6 @@ for key, value in person.items():
 # age: 30
 # city: NY
 
-# ── NoneType ─────────────────────────────────────────────────────────────────
-result = None
-print(result is None)  # True
-
 # ── Type checking & conversion ────────────────────────────────────────────────
 print(type(42))  # <class 'int'>
 print(isinstance(3.14, float))  # True
@@ -124,17 +129,10 @@ print(list((1, 2, 3)))  # [1, 2, 3]
 print(tuple([4, 5, 6]))  # (4, 5, 6)
 print(set([1, 1, 2]))  # {1, 2}
 
-
-# The Mistake Beginners Make
-
-# They think:
-
-# “Which data type should I use?”
-
+# "Which data type should I use?"
 # Wrong question.
 
 # The real question is:
-
 # What constraints does my data need?
 
 # Example:
@@ -148,12 +146,12 @@ print(set([1, 1, 2]))  # {1, 2}
 # ── Why can a tuple be used as a dict key but a list cannot? ─────────────────
 # Dict keys must be hashable — Python computes a fixed hash to store/look up the key.
 # tuple is immutable → contents never change → hash is stable → safe as a key.
-# list  is mutable   → could change after use → hash would shift → dict can’t find it.
+# list  is mutable   → could change after use → hash would shift → dict can't find it.
 
 coords = (40.7, -74.0)
 locations = {coords: "New York"}  # ✅ works
 # tags = ["python", "backend"]
-# data = {tags: "value"}            # ❌ TypeError: unhashable type: ‘list’
+# data = {tags: "value"}            # ❌ TypeError: unhashable type: 'list'
 
 # Rule: mutable = unhashable = cannot be a dict key.
 
@@ -162,7 +160,7 @@ locations = {coords: "New York"}  # ✅ works
 # Problems:
 #   Lookup is O(n)   — finding id=99 scans the entire list.
 #   No uniqueness    — two dicts with the same id coexist silently.
-#   No schema        — one dict can have "name", another "username"; Python won’t complain.
+#   No schema        — one dict can have "name", another "username"; Python won't complain.
 #
 # Better: index by the key you look up.
 
