@@ -13,13 +13,13 @@ is_active = True
 # Use snake_case by convention
 
 pythonuser_name = "Jane"  # valid
-_private = 42         
-2fast = "no" # can't start with a number 
+_private = 42
+# 2fast = "no" # can't start with a number
 
 
 # Multiple Assignment
-pythona = b = c = 0          # all three = 0
-x, y, z = 1, 2, 3     # unpack
+pythona = b = c = 0  # all three = 0
+x, y, z = 1, 2, 3  # unpack
 
 
 # Swapping Variables
@@ -33,4 +33,3 @@ print(b)  # 5
 # Python has no true constants — we will use ALL_CAPS as a signal to other developers:
 pythonMAX_RETRIES = 3
 BASE_URL: str = "https://api.example.com"
-
