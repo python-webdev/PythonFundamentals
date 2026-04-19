@@ -1,164 +1,72 @@
-# Python Syntax — The Only Things You Actually Need to Know
+# Python Syntax — Learn by Running
 
-# What Actually Happens When You Run Python Code
-
-# When you run:
-
-# python file.py
-
-# Python does 3 main steps internally.
-
-# Parse, Read & Check Syntax
-
-# Python reads your entire file and checks:
-
-# * Is indentation correct?
-# * Are colons present?
-# * Are parentheses balanced?
-
-# If something is wrong → you get SyntaxError or OtherError before anything runs.
-
-# So it doesn't execute each line blindly.
-
-# Compile to Bytecode
-
-# Python converts your code into something called bytecode.
-
-# Not machine code.
-# Not raw text.
-# But an intermediate format.
-
-# Example:
-
-print("Hello")
-
-# Gets translated internally into bytecode instructions.
-
-# This bytecode may be stored in:
-
-# __pycache__/
-
-# You’ll see files like:
-
-# main.cpython-312.pyc
-# Execute via Python Virtual Machine (PVM)
-
-# The Python Virtual Machine runs that bytecode instruction by instruction.
-
-# This is where the “line-by-line” feeling comes from.
-
-# It executes sequentially unless control flow changes:
-
-# if
-# for
-# while
-# function calls
-# exceptions
-# So, Is it souds like Line-by-Line?
-# Conceptually → Yes
-# Technically → It executes bytecode instruction by instruction
-
-# Big difference.
-
-# Example
-print("Start")
-a = 10
-y = 0
-
-print(a / y)  # This will error, but you see "Start" printed first.
-print("End")  # This will never run because of the error above.
-
-
-# Code reads top → bottom
-
+# ── 1. Code runs top to bottom ──────────────────────────────────────────────
 
 print("Start")
+print("Middle")
 print("End")
 
-
-# Indentation = structure must be indented to show it belongs to the block above
-
+# ── 2. Indentation defines blocks (no {}) ───────────────────────────────────
 
 x = 10
 if x > 5:
-    print("Inside")
+    print("Inside the block")  # indented → belongs to if
+print("Outside the block")  # not indented → always runs
 
-print("Outside")
-
-# No `{}`
-# No guessing
-# Wrong spacing = broken code
-
-
-# Use `:` to start a block
-
-if x > 5:
-    print("Big")
-
-
-# Colon means:
-
-# “Start a block → indent next lines”
-
-
-# Conditions (decision making)
+# ── 3. Colon starts a block ──────────────────────────────────────────────────
 
 if x > 10:
     print("High")
 elif x > 5:
-    print("Medium")
+    print("Medium")  # this one runs
 else:
     print("Low")
 
-
-# Loops (repeat things)
+# ── 4. Loops ─────────────────────────────────────────────────────────────────
 
 for i in range(3):
-    print(i)
+    print("for loop:", i)  # prints 0, 1, 2
+
+count = 3
+while count > 0:
+    print("while loop:", count)
+    count -= 1
+
+# ── 5. Functions group reusable logic ────────────────────────────────────────
 
 
-while x > 0:
-    x -= 1
+def add(a, b):
+    return a + b
 
 
-# Functions (reusable logic)
+print("2 + 3 =", add(2, 3))
 
+# ── 6. Data structures ───────────────────────────────────────────────────────
 
-# def add(a, b):
-#     return a + b
+numbers = [1, 2, 3]  # list — ordered, changeable
+user = {"name": "John"}  # dict — key/value pairs
 
+print(numbers[0])  # 1
+print(user["name"])  # John
 
-# Call it:
-
-# add(2, 3)
-
-
-# Data structures (containers)
-
-numbers = [1, 2, 3]  # list
-user = {"name": "John"}  # dict
-
-# Strings (modern way)
+# ── 7. f-strings (modern string formatting) ──────────────────────────────────
 
 name = "John"
-print(f"Hello {name}")
+print(f"Hello, {name}!")
 
+# ── 8. Errors stop execution at that line ────────────────────────────────────
 
-# The Real Rule (Everything Else Is Noise)
+# Uncomment to see: Python prints "Before" but never "After"
+# print("Before")
+# print(1 / 0)
+# print("After")
 
-# Python syntax is basically:
+# ── 9. Bytecode & __pycache__ ────────────────────────────────────────────────
 
-# “Use indentation to group logic, and write readable code.”
+# When you run: python syntax.py
+# Python does 3 steps:
+#   1. Parse  — checks indentation, colons, balanced parentheses
+#   2. Compile — converts code to bytecode (stored in __pycache__/*.pyc)
+#   3. Execute — Python Virtual Machine runs bytecode instruction by instruction
 
-# That’s it.
-
-#  You should be writing code until syntax becomes second nature.
-
-
-# Minimal Model of Python Syntax
-
-# 1. Code runs top to bottom
-# 2. `:` starts a block
-# 3. Indentation defines the block
-# 4. Functions group logic
-# 5. Lists/dicts store data
+# The "line-by-line" feeling comes from step 3, but it's really bytecode, not raw text.
