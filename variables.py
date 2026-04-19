@@ -21,6 +21,14 @@ _private = 42
 pythona = b = c = 0          # all three = 0
 x, y, z = 1, 2, 3     # unpack
 
+
+# Swapping Variables
+a = 5
+b = 10
+a, b = b, a  # swap values
+print(a)  # 10
+print(b)  # 5
+
 # Constants (by convention)
 # Python has no true constants — we will use ALL_CAPS as a signal to other developers:
 pythonMAX_RETRIES = 3
