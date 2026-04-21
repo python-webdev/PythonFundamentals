@@ -30,6 +30,7 @@ print(a)  # 10
 print(b)  # 5
 
 # Constants (by convention)
-# Python has no true constants — we will use ALL_CAPS as a signal to other developers:
+# Python has no true constants —
+# we will use ALL_CAPS as a signal to other developers:
 pythonMAX_RETRIES = 3
 BASE_URL: str = "https://api.example.com"
