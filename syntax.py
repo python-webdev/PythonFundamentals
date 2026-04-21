@@ -1,3 +1,14 @@
+# What is Python? - Python is a high-level, interpreted, general-purpose
+#  programming language known for its clean, readable syntax that emphasizes simplicity.
+
+# Key traits:
+
+# Interpreted — runs line by line, no compilation step
+# Dynamically typed — variable types are determined at runtime
+# Multi-paradigm — supports procedural, object-oriented, and functional styles
+# Large standard library — "batteries included" philosophy
+# Widely used — web dev, data science, automation, AI/ML, scripting
+
 # Python Syntax — Learn by Running
 
 # ── 1. Code runs top to bottom ──────────────────────────────────────────────
@@ -29,7 +40,7 @@ for i in range(3):
 
 count = 3
 while count > 0:
-    print("while loop:", count)
+    print("while loop:", count)  # prints 3, 2, 1
     count -= 1
 
 # ── 5. Functions group reusable logic ────────────────────────────────────────
@@ -39,7 +50,7 @@ def add(a, b):
     return a + b
 
 
-print("2 + 3 =", add(2, 3))
+print("2 + 3 =", add(2, 3))  # 2 + 3 = 5
 
 # ── 6. Data structures ───────────────────────────────────────────────────────
 
@@ -58,7 +69,7 @@ print(f"Hello, {name}!")
 
 # Uncomment to see: Python prints "Before" but never "After"
 # print("Before")
-# print(1 / 0)
+# print(1 / 0) # ZeroDivisionError: division by zero
 # print("After")
 
 # ── 9. Bytecode & __pycache__ ────────────────────────────────────────────────
