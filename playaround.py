@@ -1,35 +1,30 @@
-name = "John"
-print(f"Hello {name}, would you like to learn some Python today?")
+bicycles = ["trek", "cannondale", "redline", "specialized"]
+print(bicycles)
 
-first_name = "Sarah"
-print(first_name.lower())  # sarah
-print(first_name.upper())  # SARAH
-print(first_name.title())  # Sarah
-
-quote = "Albert Einstein once said, 'A person who never made a mistake never tried anything new.'"
-print(quote)
-
-famous_person = "Albert Einstein"
-message = f"{famous_person} once said, 'Imagination is more important than knowledge.'"
+print(bicycles[0].capitalize())
+print(bicycles[2].upper())
+print(bicycles[-1])
+message = f"My first bicycle was a {bicycles[0].title()}."
 print(message)
 
-full_address = " 123 Main Street\nAnytown, USA 12345 "
-print(full_address.strip())  # "123 Main Street\nAnytown, USA 12345"
+names = ["Alice", "Bob", "Charlie", "Diana"]
+print(names[0])
+print(names[1])
+print(names[2])
+print(names[3])
+message = f"Hello, {names[0]}!"
+print(message)
 
-file_name = "example.txt"
-print(file_name.removesuffix(".txt"))  # "example"
+message = f"Hello, {names[1]}!"
+print(message)
 
+message = f"Hello, {names[2]}!"
+print(message)
 
-universe_age = 13_800_000_000
-print(f"The universe is approximately {universe_age} years old.")
+message = f"Hello, {names[3]}!"
+print(message)
 
-x, y, z = 0, 0, 0
-print(f"x: {x}, y: {y}, z: {z}")
-
-print(5 + 3)
-print(10 - 2)
-print(4 * 2)
-print(16 // 2)
-
-favorite_number = 63
-print(f"My favorite number is {favorite_number}.")
+motorcycles = ["honda", "yamaha", "suzuki", "ducati", "harley-davidson"]
+print(motorcycles)
+message = f"I would like to own a {motorcycles[-1].title()} motorcycle."
+print(message)
