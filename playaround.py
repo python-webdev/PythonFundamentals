@@ -24,7 +24,40 @@ print(message)
 message = f"Hello, {names[3]}!"
 print(message)
 
-motorcycles = ["honda", "yamaha", "suzuki", "ducati", "harley-davidson"]
+motorcycles = ["honda", "yamaha", "harley-davidson"]
 print(motorcycles)
 message = f"I would like to own a {motorcycles[-1].title()} motorcycle."
-print(message)
+print(f"{message}\n")
+
+# Modifying, Adding, and Removing Elements
+motorcycles[0] = "jawa"
+print(motorcycles)
+
+motorcycles.append("ducati")
+print(motorcycles)
+
+motorcycles = []
+motorcycles.append("honda")
+motorcycles.append("yamaha")
+motorcycles.append("suzuki")
+print(motorcycles)
+
+motorcycles.insert(1, "ducati")
+print(motorcycles)
+
+del motorcycles[0]
+print(motorcycles)
+
+del motorcycles[1]
+print(motorcycles)
+
+popped_motorcycle = motorcycles.pop()
+print(motorcycles)
+print(f"The last motorcycle I owned was a {popped_motorcycle.title()}.")
+motorcycles = ["honda", "yamaha", "suzuki", "harley-davidson"]
+first_owned = motorcycles.pop(0)
+print(f"The first motorcycle I owned was a {first_owned.title()}.")
+
+too_expensive = "harley-davidson"
+motorcycles.remove(too_expensive)
+print(f"A {too_expensive.title()} is too expensive for me.")
