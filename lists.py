@@ -3,7 +3,7 @@
 # ──────────────────────────────────────────────
 
 # 1. What a Python List Actually Is
-#
+
 # A Python list is:
 #   - Ordered sequence of elements
 #   - Mutable
@@ -23,7 +23,7 @@ mixed = [1, "hello", 3.14, True]
 
 
 # 2. Memory Model (This is where most people fail)
-#
+
 # A list does NOT store values directly — it stores references (pointers).
 # This is not optional knowledge. If you don't understand this, you will:
 #   - Introduce bugs in APIs
@@ -48,7 +48,7 @@ squares = [x**2 for x in range(5)]
 
 
 # 4. Accessing Elements
-#
+
 # Indices start at 0. Negative indices count from the end (-1 is last).
 # Slicing creates a new list — not a view into the original.
 
@@ -93,7 +93,7 @@ print(f"{message}\n")
 
 
 # 5. Mutability — The Core Feature
-#
+
 # You can modify lists in-place with append, insert, remove, pop, and direct assignment.
 # But don't just memorize — understand the cost (see section 6).
 
@@ -179,7 +179,7 @@ print(f"Guests list: {guests}\n")
 
 
 # 6. Time Complexity (Where engineers separate from beginners)
-#
+
 # Operation         Complexity
 # Access index      O(1)
 # Append            O(1)*
@@ -195,7 +195,7 @@ lst.insert(0, 99)  # O(n) — shifts every element
 
 
 # 7. Organising a List
-#
+
 # sort()    → modifies the list in-place, permanently
 # sorted()  → returns a new sorted list, original unchanged
 # reverse() → reverses in-place
@@ -260,7 +260,7 @@ print(f"Number of mountains: {len(mountains)}\n")
 
 
 # 9. Iteration
-#
+
 # Avoiding Index Errors — never access an index that doesn't exist.
 # Use len() to guard, or prefer iterating directly over the list.
 
@@ -370,7 +370,7 @@ print(f"Sum of digits: {sum(digits)}\n")
 
 
 # 12. Slicing a List
-#
+
 # Slicing creates a new list, not a view.
 
 players = ["charles", "martina", "michael", "florence", "eli"]
@@ -392,7 +392,7 @@ print(f"{buses[-3:]}\n")
 
 
 # 13. Copying Lists (Critical Trap)
-#
+
 # Wrong — both names point to the same object:
 #   b = a
 #
@@ -449,7 +449,7 @@ matrix = [[0] * 3 for _ in range(3)]
 
 
 # 15. When NOT to Use Lists
-#
+
 # Use alternatives when appropriate:
 #   set        → fast membership checks
 #   tuple      → immutable data
@@ -472,7 +472,8 @@ matrix = [[0] * 3 for _ in range(3)]
 
 
 # 17. Subtle Pitfalls (You should recognize these instantly)
-#
+
+
 # Mutable default argument — accumulates state across calls:
 def func(lst=[]):  # pylint: disable=dangerous-default-value
     lst.append(1)
@@ -487,7 +488,7 @@ for x in lst:
 
 
 # 18. Mental Model (If you remember nothing else)
-#
+
 # A Python list is:
 #   A dynamic array of references with O(1) indexing,
 #   mutable state, and hidden resizing cost.
