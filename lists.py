@@ -10,10 +10,10 @@
 #   - A dynamic array-like data structure
 #
 # Key properties:
-#   Ordered       → position matters (numbers[0] ≠ numbers[1])
-#   Mutable       → can change after creation
-#   Allows duplicates
-#   Heterogeneous → can hold different types
+#   - Ordered       → position matters (numbers[0] ≠ numbers[1])
+#   - Mutable       → can change after creation
+#   - Allows duplicates
+#   - Heterogeneous → can hold different types
 #
 # If you think "list = array," you're already making a mistake.
 # Python lists are resizable arrays with references, not fixed memory blocks like in C.
