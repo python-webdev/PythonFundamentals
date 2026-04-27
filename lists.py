@@ -32,8 +32,11 @@ mixed = [1, "hello", 3.14, True]
 
 a = [1, 2, 3]
 b = a
+print(a is b)  # True, because a and b reference the same list object in memory
 b.append(4)
-print(a)  # [1, 2, 3, 4]  — both a and b point to the same list object
+print(
+    a
+)  # [1, 2, 3, 4]  — both a and b point to the same list object in memory
 
 
 # 3. Creating Lists
@@ -186,7 +189,7 @@ print(f"Guests list: {guests}\n")
 # Insert (middle)   O(n)
 # Delete (middle)   O(n)
 # Search            O(n)
-#
+
 # *Append is amortized O(1) due to resizing.
 # If you're inserting at the front frequently, use collections.deque instead.
 
