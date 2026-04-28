@@ -48,17 +48,17 @@ print(
     a
 )  # [1, 2, 3, 4] because a and d reference different list objects in memory
 
-pairs = [(1, "one"), (2, "two"), (3, "three")]
+pairs = [(1, 'one'), (2, 'two'), (3, 'three')]
 pairs.sort(key=lambda x: x[1])
 print(pairs)  # [(1, 'one'), (3, 'three'), (2, 'two')]
 
-cars = ["Toyota", "Honda", "Ford", "BMW", "Audi"]
+cars = ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
 print(
-    f"Original list: {cars}"
+    f'Original list: {cars}'
 )  # Original list: ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
 print(
-    f"Temporary sorted list: {sorted(cars)}"
+    f'Temporary sorted list: {sorted(cars)}'
 )  # Temporary sorted list: ['Audi', 'BMW', 'Ford', 'Honda', 'Toyota']
 print(
-    f"Original list: {cars}"
+    f'Original list: {cars}'
 )  # Original list: ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
