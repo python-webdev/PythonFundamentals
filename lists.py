@@ -8,7 +8,7 @@
 #   - Ordered sequence of elements
 #   - Mutable
 #   - A dynamic array-like data structure
-#
+
 # Key properties:
 #   - Ordered       → position matters (numbers[0] ≠ numbers[1])
 #   - Mutable       → can change after creation
