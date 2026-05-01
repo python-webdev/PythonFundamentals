@@ -17,7 +17,7 @@ from itertools import zip_longest
 #   - Mutable       → can change after creation
 #   - Allows duplicates
 #   - Heterogeneous → can hold different types
-#
+
 # If you think "list = array," you're already making a mistake.
 # Python lists are resizable arrays with references, not fixed memory blocks like in C.
 
