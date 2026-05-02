@@ -1,64 +1,54 @@
-# miscellaneous = [
-#     "fruit",
-#     True,
-#     42,
-#     3.14,
-#     [1, 2, 3],
-#     {"key": "value"},
-#     (4, 5),
-#     {1, 2, 3},
-#     None,
-# ]
-
-# print(miscellaneous[0].upper())
-# print(miscellaneous[1].bit_length())
-# print(miscellaneous[2].bit_length())
-# print(miscellaneous[3].is_integer())
-# miscellaneous[4].append(4)
-# print(miscellaneous[4])
-# print(miscellaneous[5]["key"])
-# print(miscellaneous[6].count(4))
-# miscellaneous[7].add(4)
-# print(miscellaneous[7])
-# print(miscellaneous[8] is None)
+from dataclasses import dataclass
 
 
-a = [1, 2, 3]
-b = a
-print(a is b)  # True, because a and b reference the same list object in memory
-b.append(4)
-print(
-    a
-)  # [1, 2, 3, 4], because a and b reference the same list object in memory
-c = a.copy()
-print(
-    a is c
-)  # False, because a and c reference different list objects in memory
-c.append(5)
-print(
-    a
-)  # [1, 2, 3, 4] because a and c reference different list objects in memory
+def invert(lst: list[int]) -> list[int]:
+    return [-x for x in lst]
 
-d = a[:]
-print(
-    a is d
-)  # False, because a and d reference different list objects in memory
-d.append(6)
-print(
-    a
-)  # [1, 2, 3, 4] because a and d reference different list objects in memory
 
-pairs = [(1, 'one'), (2, 'two'), (3, 'three')]
-pairs.sort(key=lambda x: x[1])
-print(pairs)  # [(1, 'one'), (3, 'three'), (2, 'two')]
+# Example usage:
+numbers = [1, -2, 3, -4, 5]
+inverted_numbers = invert(numbers)
+print(inverted_numbers)  # Output: [-1, 2, -3, 4, -5]
 
-cars = ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
-print(
-    f'Original list: {cars}'
-)  # Original list: ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
-print(
-    f'Temporary sorted list: {sorted(cars)}'
-)  # Temporary sorted list: ['Audi', 'BMW', 'Ford', 'Honda', 'Toyota']
-print(
-    f'Original list: {cars}'
-)  # Original list: ['Toyota', 'Honda', 'Ford', 'BMW', 'Audi']
+
+# LeetCode problem: Two Sum
+class Solution:  # pylint: disable=too-few-public-methods
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        num_to_index = {}
+
+        for index, num in enumerate(nums):
+            complement = target - num
+
+            if complement in num_to_index:
+                return [num_to_index[complement], index]
+
+            num_to_index[num] = index
+
+        return []  # This line is never reached since the problem guarantees a solution exists
+
+
+# Example usage:
+solution = Solution()
+nums = [2, 7, 11, 15]
+target = 9
+result = solution.twoSum(nums, target)
+print(result)  # Output: [0, 1]
+
+# Example usage:
+nums = [3, 2, 4]
+target = 6
+result = solution.twoSum(nums, target)
+print(result)  # Output: [1, 2]
+
+
+@dataclass
+class Player:
+    name: str
+
+
+players = [Player(name='a'), Player(name='b'), Player(name='c')]
+
+
+def duck_duck_goose(players: list[Player], position: int) -> str:
+    index = (position - 1) % len(players)
+    return players[index].name
