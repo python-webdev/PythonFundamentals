@@ -50,3 +50,25 @@ def longest_common_prefix(strs: list[str]) -> str:
 strs = ["flower", "flow", "flight"]
 result = longest_common_prefix(strs)
 print(result)  # Output: "fl"
+
+
+def monkey_count(n: int) -> list[int]:
+    return list(range(1, n + 1))
+
+
+# Example usage:
+n = 5
+result = monkey_count(n)
+print(result)  # Output: [1, 2, 3, 4, 5]
+
+
+def two_highest(arg1: list[int]) -> list[int]:
+    unique_numbers = set(arg1)
+    sorted_numbers = sorted(unique_numbers, reverse=True)
+    return sorted_numbers[:2]
+
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5, 5]
+result = two_highest(numbers)
+print(result)  # Output: [5, 4]
