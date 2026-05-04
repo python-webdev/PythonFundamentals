@@ -507,7 +507,7 @@ for i, ch in enumerate(word):
 # Unpacking works just like with lists:
 first, *middle, last = 'Python'
 print(first)  # 'P'
-print(middle)  # ['y', 't', 'h', 'o']
+print(middle)  # 'ytho'
 print(last)  # 'n'
 
 # Building from iteration:
