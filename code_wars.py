@@ -72,3 +72,35 @@ def two_highest(arg1: list[int]) -> list[int]:
 numbers = [1, 2, 3, 4, 5, 5]
 result = two_highest(numbers)
 print(result)  # Output: [5, 4]
+
+
+def square_sum(numbers: list[int]) -> int:
+    return sum(x**2 for x in numbers)
+
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+result = square_sum(numbers)
+print(result)  # Output: 55
+
+
+def alternative_square_sum(arr: list[int]) -> int:
+    if not arr:
+        return 0
+    # even_positions_sum = sum(item for index, item in enumerate(arr) if index % 2 == 0)
+    # odd_positions_sum = sum(item**2 for index, item in enumerate(arr) if index % 2 != 0)
+    # return even_positions_sum + odd_positions_sum
+
+    # even_positions_sum = sum(arr[i] for i in range(0, len(arr), 2))
+    # odd_positions_sum = sum(arr[i] ** 2 for i in range(1, len(arr), 2))
+    # return even_positions_sum + odd_positions_sum
+
+    return sum(
+        item**2 if index % 2 == 1 else item for index, item in enumerate(arr)
+    )
+
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+result = alternative_square_sum(numbers)
+print(result)  # Output: 55
