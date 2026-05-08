@@ -104,3 +104,31 @@ def alternative_square_sum(arr: list[int]) -> int:
 numbers = [1, 2, 3, 4, 5]
 result = alternative_square_sum(numbers)
 print(result)  # Output: 55
+
+
+def distinct(seq: list[int]) -> list[int]:
+    # seen = set()
+    # result = []
+    # for item in seq:
+    #     if item not in seen:
+    #         seen.add(item)
+    #         result.append(item)
+    # return result
+
+    return list(dict.fromkeys(seq))
+
+
+# Example usage:
+numbers = [1, 2, 2, 3, 4, 4, 5]
+result = distinct(numbers)
+print(result)  # Output: [1, 2, 3, 4, 5]
+
+
+def add_length(strs: str) -> list[str]:
+    return [f"{s} {len(s)}" for s in strs.split(" ")]
+
+
+# Example usage:
+input_str = "apple banana cherry"
+result = add_length(input_str)
+print(result)  # Output: ['apple 5', 'banana 6', 'cherry 6']
