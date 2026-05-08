@@ -132,3 +132,14 @@ def add_length(strs: str) -> list[str]:
 input_str = "apple banana cherry"
 result = add_length(input_str)
 print(result)  # Output: ['apple 5', 'banana 6', 'cherry 6']
+
+
+def each_cons(lst: list[int], n: int) -> list[list[int]]:
+    return [lst[i : i + n] for i in range(len(lst) - n + 1)]
+
+
+# Example usage:
+numbers = [1, 2, 3, 4]
+n = 3
+result = each_cons(numbers, n)
+print(result)  # Output: [[1, 2, 3], [2, 3, 4]]
