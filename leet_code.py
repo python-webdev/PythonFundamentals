@@ -101,5 +101,24 @@ print(new_length)  # Output: 2
 print(nums[:new_length])  # Output: [2, 2]
 
 
-def min_max(nums: List[T]) -> List[T]:
-    return [min(nums), max(nums)]
+class RemoveDuplicatesSolution:
+    def removeDuplicates(self, nums: List[T]) -> int:
+        if not nums:
+            return 0
+
+        k = 1
+
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                nums[k] = nums[i]
+                k += 1
+
+        return k
+
+
+# Example usage:
+nums = [1, 1, 2]
+remove_duplicates_solution = RemoveDuplicatesSolution()
+new_length = remove_duplicates_solution.removeDuplicates(nums)
+print(new_length)  # Output: 2
+print(nums[:new_length])  # Output: [1, 2]
