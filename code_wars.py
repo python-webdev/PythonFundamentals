@@ -208,3 +208,58 @@ def filter_list(lst: List[int | str]) -> List[int | float]:
 mixed_list = [1, 'a', -2, 3.5, 'b', 0, 4]
 filtered_list = filter_list(mixed_list)
 print(filtered_list)  # Output: [1, 3.5, 4]
+
+
+def min_max(nums: List[T]) -> List[T]:
+    return [min(nums), max(nums)]
+
+
+# Example usage:
+numbers = [3, 1, 4, 1, 5]
+result = min_max(numbers)
+print(result)  # Output: [1, 5]
+
+
+def partlist(lst: List[str]) -> List[tuple[str, str]]:
+    if not lst:
+        return []
+
+    return [(' '.join(lst[:i]), ' '.join(lst[i:])) for i in range(1, len(lst))]
+
+
+# Example usage:
+lst = ["I", "wish", "I", "hadn't", "come"]
+result = partlist(lst)
+print(
+    result
+)  # Output: [('I', "wish I hadn't come"), ('I wish', "I hadn't come"), ('I wish I', "hadn't come"), ("I wish I hadn't", 'come')]
+
+
+def find_lineup(distances: List[int]) -> List[int]:
+    n = len(distances)
+    # The output will have n people (excluding Carrol)
+    order = [0] * n
+
+    # We use a set to track which positions are filled
+    filled_positions = set()
+
+    for person_index, m in enumerate(distances):
+        # Person ID is index + 1 (Person 1, Person 2, ...)
+        person_id = person_index + 1
+
+        # Validation:
+        # 1. Memory must be between 0 and n-1
+        # 2. Position must not already be taken
+        if m < 0 or m >= n or m in filled_positions:
+            return []
+
+        order[m] = person_id
+        filled_positions.add(m)
+
+    return order
+
+
+# Example usage:
+distances = [1, 2, 0]
+lineup = find_lineup(distances)
+print(lineup)  # Output: [3, 1, 2]
