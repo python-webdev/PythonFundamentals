@@ -1,6 +1,7 @@
-from typing import List, TypeVar
+from typing import List, Tuple, TypeVar
 
 T = TypeVar("T", int, float)
+U = TypeVar("U", int, float, str, List, Tuple)
 
 
 def sorter(text: List[str]) -> List[str]:
@@ -263,3 +264,34 @@ def find_lineup(distances: List[int]) -> List[int]:
 distances = [1, 2, 0]
 lineup = find_lineup(distances)
 print(lineup)  # Output: [3, 1, 2]
+
+
+def sum_it_up(numbers_with_bases: List[Tuple[str, int]]) -> int:
+    # total_sum = 0
+    # for number_str, base in numbers_with_bases:
+    #     total_sum += int(number_str, base)
+    # return total_sum
+
+    return sum(
+        int(number_str, base) for number_str, base in numbers_with_bases
+    )
+
+
+# Example usage:
+numbers_with_bases = [("101", 2), ("10", 8)]
+result = sum_it_up(numbers_with_bases)
+print(result)  # Output: 13
+
+
+def last(*args: U) -> U:
+    if len(args) == 1:
+        arg = args[0]
+        if isinstance(arg, (list, str)):
+            return arg[-1]  # type: ignore
+    return args[-1]
+
+
+# Example usage:
+print(last(1, 2, 3))  # Output: 3
+print(last([1, 2, 3]))  # Output: 3
+print(last("hello"))  # Output: 'o'
